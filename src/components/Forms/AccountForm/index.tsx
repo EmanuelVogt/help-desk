@@ -13,7 +13,10 @@ export function AccountForm() {
   function handleNewAccount() {
     setIsLoading(true)
     auth()
-    .createUserWithEmailAndPassword(email, password)
+      .createUserWithEmailAndPassword(email, password)
+      .then(() => Alert.alert("Conta", "Cadastrado com sucesso"))
+      .catch((error) => console.log(error))
+      .finally(() => setIsLoading(false))
   }
 
   return (
