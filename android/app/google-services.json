@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "11368251527",
+    "project_id": "projeto-87bac",
+    "storage_bucket": "projeto-87bac.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:11368251527:android:eeb894013419121076b822",
+        "android_client_info": {
+          "package_name": "com.oagroteste"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "11368251527-m7aluock95bvrie72roavljsqpo20mpf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBzZ0LoQ3VWNQ979MVc28Ht0qtshypZVcU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "11368251527-m7aluock95bvrie72roavljsqpo20mpf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
