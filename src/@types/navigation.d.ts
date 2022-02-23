@@ -12,6 +12,7 @@ export type ProductNavigationProps = {
         home: undefined;
         signIn: undefined;
         register: undefined;
+        reset: undefined;
       }
     }
   }
