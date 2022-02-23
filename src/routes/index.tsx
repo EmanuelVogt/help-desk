@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { Home } from '@screens/Home';
 import { AuthRoutes } from './auth.routes';
 import auth, { FirebaseAuthTypes } from "@react-native-firebase/auth";
+import { UserAuthContext } from "../../src/utils/AuthContext";
 
 export function Routes() {
   const [user, setUser] = useState<FirebaseAuthTypes.User | null>();
@@ -15,7 +16,12 @@ export function Routes() {
 
   return (
     <NavigationContainer>
-      {user ? <Home /> : <AuthRoutes />}
+      {user ?
+        <UserAuthContext.Provider value={[user]}>
+          <Home />
+        </UserAuthContext.Provider> 
+        : <AuthRoutes />
+      }
     </NavigationContainer>
   );
 }

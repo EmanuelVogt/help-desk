@@ -9,6 +9,7 @@ import { useFonts, Inter_400Regular, Inter_700Bold } from '@expo-google-fonts/in
 
 import { Routes } from './src/routes';
 import theme from './src/theme';
+import { UserAuthContext } from './src/utils/AuthContext'
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -24,7 +25,9 @@ export default function App() {
     <GestureHandlerRootView style={{ flex: 1 }}>
       <ThemeProvider theme={theme}>
         <StatusBar style="dark" translucent backgroundColor="transparent" />
-        <Routes />
+        <UserAuthContext.Provider value={[]}>
+          <Routes />
+        </UserAuthContext.Provider>
       </ThemeProvider>
     </GestureHandlerRootView>
   );
