@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import auth from '@react-native-firebase/auth'
 import { FooterButton } from '@components/Controllers/FooterButton';
@@ -15,21 +15,27 @@ export function SignInForm() {
   const navigation = useNavigation();
 
   function handleSignIn() {
-    setIsLoading(true);
-    auth()
-    .signInWithEmailAndPassword(email, password)
-    .then(() => { 
-      Alert.alert("Login efetuado com sucesso!!!") 
-    })
-    .catch((error) => console.log(error))
-    .finally(() => setIsLoading(false))
+    if (email && password) {
+      setIsLoading(true);
+      auth()
+        .signInWithEmailAndPassword(email, password)
+        .then((response) => {
+        })
+        .catch((error) => {
+          setIsLoading(false)
+          Alert.alert('Verifique suas credenciais!')
+        })
+        .finally(() => setIsLoading(false))
+    } else {
+      Alert.alert('Dados estão faltando')
+    }
   }
 
   function handleForgotPassword() {
     auth()
-    .sendPasswordResetEmail(email)
-    .then(() => Alert.alert("Redefinir Senha", "Enviamos um email para redefinição de senha"))
-    .catch(error => console.log(error))
+      .sendPasswordResetEmail(email)
+      .then(() => Alert.alert("Redefinir Senha", "Enviamos um email para redefinição de senha"))
+      .catch(error => console.log(error))
   }
 
   return (

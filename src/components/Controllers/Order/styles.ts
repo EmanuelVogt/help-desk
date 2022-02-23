@@ -1,5 +1,5 @@
 import styled from 'styled-components/native';
-
+import { RectButton } from 'react-native-gesture-handler';
 export type OrderStyleProps = {
   status: 'open' | 'closed';
 };
