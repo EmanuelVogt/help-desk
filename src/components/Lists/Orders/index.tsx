@@ -5,26 +5,28 @@ import firestore from '@react-native-firebase/firestore'
 import { Load } from '@components/Animations/Load';
 import { Filters } from '@components/Controllers/Filters';
 import { Order, OrderProps } from '@components/Controllers/Order';
-import { Container, Header, Title, Counter } from './styles';
+import { Container, Header, Title, Counter, InputFilter } from './styles';
+import { Input } from '@components/Controllers/Input';
 export function Orders() {
   const [status, setStatus] = useState('open');
   const [isLoading, setIsLoading] = useState(false);
   const [orders, setOrders] = useState<OrderProps[]>([]);
+  const [filter, setFilter] = useState('');
 
   useEffect(() => {
     setIsLoading(true);
     const subscriber = firestore()
-    .collection('order')
-    .where('status', '==', status)
-    .onSnapshot(querySnapshot => {
+      .collection('order')
+      .where('status', '==', status)
+      .onSnapshot(querySnapshot => {
         const data = querySnapshot.docs.map(doc => {
           return {
             id: doc.id,
             ...doc.data()
           }
-          
+
         }) as OrderProps[];
-        
+
         setOrders(data)
         setIsLoading(false)
       })
@@ -34,11 +36,11 @@ export function Orders() {
   return (
     <Container>
       <Filters onFilter={setStatus} />
-
       <Header>
         <Title>Chamados {status === 'open' ? 'aberto' : 'encerrado'}</Title>
         <Counter>{orders.length}</Counter>
       </Header>
+      <InputFilter placeholder="Filtrar" onChangeText={setFilter} />
 
       {
         isLoading ?

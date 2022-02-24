@@ -16,3 +16,8 @@ export const Container = styled(TextInput).attrs<TextInputProps>(({ theme }) => 
   border: 1px solid ${({ theme }) => theme.COLORS.BORDER};
   color: ${({ theme }) => theme.COLORS.TEXT};
 `;
+export const Error = styled.Text`
+  color: #ff6347;
+  font-size: 12px;
+  margin: 7px 0;
+`;

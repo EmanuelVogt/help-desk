@@ -1,8 +1,8 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 
 import { LogoutButton } from '@components/Controllers/LogoutButton';
 import { Container, Greeting, Title, SubTitle } from './styles';
-import auth, { FirebaseAuthTypes } from '@react-native-firebase/auth'
+import auth from '@react-native-firebase/auth'
 import { UserAuthContext } from '../../../utils/AuthContext';
 
 export function Header() {
